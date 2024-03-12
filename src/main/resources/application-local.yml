@@ -1,0 +1,23 @@
+server.servlet.encoding.force-response: true
+
+spring:
+  application:
+    name: giss-poc
+  datasource:
+    url: jdbc:postgresql://localhost:5431/
+    username: postgres
+    password: password
+    driverClassName: org.postgresql.Driver
+#    type: com.zaxxer.hikari.HikariDataSource
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+#      ddl-auto: create
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
