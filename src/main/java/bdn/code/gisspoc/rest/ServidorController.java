@@ -1,8 +1,8 @@
 package bdn.code.gisspoc.rest;
 
 import bdn.code.gisspoc.error.IdMismatchException;
-import bdn.code.gisspoc.rest.dto.ProcessDto;
-import bdn.code.gisspoc.service.ProcessService;
+import bdn.code.gisspoc.rest.dto.ServidorDto;
+import bdn.code.gisspoc.service.ServidorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,28 +21,28 @@ import java.util.Objects;
 @RestController
 @RequestMapping("/proceses")
 @RequiredArgsConstructor
-public class ProcessController {
+public class ServidorController {
 
-    private final ProcessService processService;
+    private final ServidorService processService;
 
     @GetMapping
-    public ResponseEntity<List<ProcessDto>> getAll() {
+    public ResponseEntity<List<ServidorDto>> getAll() {
         return ResponseEntity.ok(processService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProcessDto> getById(@PathVariable Long id) {
+    public ResponseEntity<ServidorDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok(processService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<ProcessDto> create(@RequestBody ProcessDto processDto) {
+    public ResponseEntity<ServidorDto> create(@RequestBody ServidorDto processDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(processService.create(processDto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProcessDto> update(@PathVariable Long id, @RequestBody ProcessDto processDto) {
+    public ResponseEntity<ServidorDto> update(@PathVariable Long id, @RequestBody ServidorDto processDto) {
         if (!Objects.equals(id, processDto.getId())) {
             throw new IdMismatchException("No match");
         }

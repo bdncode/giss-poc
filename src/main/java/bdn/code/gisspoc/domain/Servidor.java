@@ -14,8 +14,8 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@SequenceGenerator(name = "ProcessIdGenerator", sequenceName = "process_seq", allocationSize = 1)
-public class Process {
+@SequenceGenerator(name = "ServidorIdGenerator", sequenceName = "process_seq", allocationSize = 1)
+public class Servidor {
 
     @Id
     @GeneratedValue(generator = "ClientIdGenerator", strategy = GenerationType.SEQUENCE)
@@ -27,7 +27,7 @@ public class Process {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Process process = (Process) o;
+        Servidor process = (Servidor) o;
         return id != null && Objects.equals(id, process.id);
     }
 

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Builder(toBuilder = true)
 @Data
-public class ProcessDto {
+public class ServidorDto {
 
     Long id;
     String name;
